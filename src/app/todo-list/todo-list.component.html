@@ -1,0 +1,21 @@
+<div class="todo-container">
+    <h2>Todo List</h2>
+  
+    <form class="todo-form">
+      <input type="text" class="todo-input" [(ngModel)]="newTodoTitle" placeholder="New Todo" name="newTodo">
+      <button class="todo-add-button" (click)="addTodo()">Add</button>
+    </form>
+  
+    <ul class="todo-list">
+      <li *ngFor="let todo of todos" [class.completed]="todo.completed" class="todo-item">
+        <span class="todo-text">{{ todo.title }}</span>
+        <div class="todo-buttons">
+          <button class="todo-toggle-button" (click)="toggleTodoStatus(todo)">
+            {{ todo.completed ? 'Mark Incomplete' : 'Mark Complete' }}
+          </button>
+          <button class="todo-delete-button" (click)="deleteTodo(todo)">Delete</button>
+        </div>
+      </li>
+    </ul>
+  </div>
+  
